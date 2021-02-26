@@ -14,3 +14,19 @@ exports.YOUTUBE_URL = "http://youtube.com"
 exports.YT_IMG_BASE_URL = "https://i.ytimg.com"
 exports.YT_IMG_JPG_TYPE = "/vi"
 exports.YT_IMG_JPG_FILENAME = "/mqdefault.jpg"
+
+exports.ORGS_NAME = Object.freeze({
+    "hololive": "Hololive",
+    "nijisanji": "Nijisanji",
+    "noripro": "Nori%20Pro",
+    "nori%20pro": "Nori%20Pro",
+    "voms": "VOMS",
+    "upd8": "upd8",
+    "react": "ReACT",
+    "tsunderia": "Tsunderia",
+    "idol-bu": "Idol-bu",
+    ".live": ".LIVE",
+    "774inc": "774inc",
+    "independent": "Independents",
+    "indie": "Independents",
+});

@@ -22,22 +22,17 @@ module.exports.run = async (client, msg, args) => {
 			.setTitle(":grey_question: Help - " + `${file.help.type}` + " Command", msg.guild.iconURL)
 			.setColor("RANDOM")
 			.setImage(client.AvatarURL)
-			//.setFooter(`Bot created by ${cnf.owner}`,)
 			.addField(`${BOT_PREFIX} ` + file.help.usage, file.help.description)
-		  
-			msg.channel.send(newembed);  
+		msg.channel.send(newembed);  
 	}
   
 	var done = true
 	
 	var General = [];
 	var Youtube = [];
-	console.log("aaaa!!!")
 	fs.readdir("./src/commands", (err, files) => {
-		console.log(files)
 		if (err) return;
 		commandnum = files.length;
-		console.log(commandnum)
 		files.forEach(file => {
 			let f = require(`./${file}`);
 			var namelist = f.help.name;
@@ -51,7 +46,7 @@ module.exports.run = async (client, msg, args) => {
 			//   done = true
 			// }      
 	  	});
-		console.log("HELLO!!!")
+		
 		if (done) {
 			if (!command) {
 				msg.channel.send({embed: {

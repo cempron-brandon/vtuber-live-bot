@@ -25,16 +25,9 @@ client.on('message', msg => {
         }})
     }
 
-    // if ( msg.content.startsWith(COMMAND_HELP)) {
-    //     let req = msg.content.substr(COMMAND_HELP.length)
-    //     let res = help.respond(req)
-    //     msg.channel.send(res)
-    // }
-
     const args = msg.content.slice(BOT_PREFIX.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-    console.log(args)
-
+    
     try {
         let commandFile = require(`./commands/${command}.js`);
         if(commandFile.length <= 0){
@@ -42,11 +35,10 @@ client.on('message', msg => {
         }
         commandFile.run(client, msg, args);
     } catch (err) {
-        console.log(err);
         msg.channel.send({embed: {
-                color: 16734039,
-                description: "That command does not exist, Take a look at " + `${BOT_PREFIX}` + " help!"
-            }})
+            color: 16734039,
+            description: "That command does not exist, Take a look at " + `${BOT_PREFIX}` + " help!"
+        }})
     }
 })
 
