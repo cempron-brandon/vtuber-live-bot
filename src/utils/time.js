@@ -32,20 +32,20 @@ const formatDuration = (secs) => {
 const localizedDayjs = (time, lang) => {
     // eslint-disable-next-line no-param-reassign
     if (lang === "zh") lang = "zh-tw";
-    return dayjs(time).locale(lang);
+    return dayjs(time).locale(lang).local();
 }
 
 const formatDistance = function (time, lang = "en") {
     let diff;
     if (!time) return "?";
-    if (Math.abs(dayjs().diff(time, "minutes")) < 1) return "soon";
+    if (Math.abs(dayjs().diff(time, "minutes")) < 1) return "Starting soon";
     if (Math.abs(dayjs().diff(time, "hour")) > 23) return localizedDayjs(time, lang).format("LLL");
     const timeObj = localizedDayjs(time, lang);
     if (new Date(time) > Date.now()) {
         diff = ['Starts', timeObj.fromNow(), `(${timeObj.format(`${timeObj.isTomorrow() ? "ddd " : ""}LT`)})`].join(' ');
         return diff;
     }
-    diff = [timeObj.fromNow(), `${timeObj.format("LT")}`].join(' ');
+    diff = [timeObj.fromNow(), `(${timeObj.format("LT")})`].join(' ');
     return diff;
 }
 
