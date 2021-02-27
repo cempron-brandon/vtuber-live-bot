@@ -19,7 +19,6 @@ exports.ORGS_NAME = Object.freeze({
     "hololive": "Hololive",
     "nijisanji": "Nijisanji",
     "noripro": "Nori%20Pro",
-    "nori%20pro": "Nori%20Pro",
     "voms": "VOMS",
     "upd8": "upd8",
     "react": "ReACT",
