@@ -43,7 +43,7 @@ module.exports.run = async (client, msg, args) => {
                     .setImage(`${c.YT_IMG_BASE_URL}${c.YT_IMG_JPG_TYPE}/${info.id}${c.YT_IMG_JPG_FILENAME}`)  
                     .setAuthor(info.channel.english_name ? info.channel.english_name : info.channel.name, info.channel.photo, `${c.YOUTUBE_URL}/channel/${info.channel.id}`)
                     .setColor(`RANDOM`)
-                    .setDescription(`Live Now・${formatCount(info.live_viewers)} watching`)
+                    .setDescription(info.live_viewers ? `Live Now・${formatCount(info.live_viewers)} watching` : `Live Now`)
                     .setFooter(`This message will be deleted after 2 mins...`)
                     .setURL(`${c.YOUTUBE_URL}/watch?v=${info.id}`)
                 msg.channel.send(embed)
